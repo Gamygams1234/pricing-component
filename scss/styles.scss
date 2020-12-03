@@ -1,0 +1,241 @@
+$very-light-grey-blue: hsl(240, 78%, 98%);
+$light-grey-blue: hsl(234, 14%, 74%);
+$grey-blue: hsl(233, 13%, 49%);
+$dark-grey-blue: hsl(232, 13%, 33%);
+$white: hsl(0, 0, 100);
+
+body {
+    font-weight: 700;
+    font-family: "Montserrat", sans-serif;
+}
+button:focus {
+    outline: none;
+}
+
+.content {
+    min-height: 100vh;
+    background-image: url(/images/bg-bottom.svg), url(/images/bg-top.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: left bottom, top right;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+    background-color: $very-light-grey-blue;
+
+    .heading {
+        color: $grey-blue;
+        padding: 2em;
+    }
+    .toggle {
+        width: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+        margin-bottom: 3em;
+        h4 {
+            color: $light-grey-blue;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+            -webkit-transition: 0.4s;
+            transition: 0.4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: 0.4s;
+            transition: 0.4s;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196f3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+    }
+    .card-list {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        .card {
+            margin-top: 1em;
+            margin-bottom: 1em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            background-color: white;
+            color: $dark-grey-blue;
+            border-radius: 1em;
+
+            .top-card {
+                padding-top: 2em;
+                padding-bottom: 2em;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+
+                .price {
+                    display: flex;
+                    align-items: center;
+                    padding-top: 1em;
+                    padding-bottom: 1em;
+                    span {
+                        font-size: 2em;
+                    }
+                }
+            }
+            .mid-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 80%;
+
+                .card-desc {
+                    text-align: center;
+                    width: 80%;
+                    padding-top: 1.25em;
+                    padding-bottom: 1.25em;
+                    border-top: 2px solid hsl(0, 0, 94);
+                }
+                .card-desc:last-child {
+                    border-bottom: 2px solid hsl(0, 0, 94);
+                }
+            }
+            .end-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 80%;
+                .submit-button {
+                    width: 80%;
+                    padding-top: 1em;
+                    padding-bottom: 1em;
+
+                    button {
+                        background: linear-gradient(90deg, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+                        color: white;
+                        width: 100%;
+
+                        text-align: center;
+                        text-decoration: none;
+                        padding-top: 1em;
+                        padding-bottom: 1em;
+                        border-radius: 0.5em;
+                        font-weight: 700;
+                        font-family: "Montserrat", sans-serif;
+                        font-size: 16px;
+                        margin: 4px 2px;
+                        cursor: pointer;
+                        border: 2px solid;
+                    }
+                    button:hover {
+                        background: hsl(237, 63%, 64%, 0);
+                        border: 2px solid hsl(237, 63%, 64%);
+                        color: hsl(237, 63%, 64%);
+                    }
+                }
+            }
+        }
+        #pro-card {
+            background: linear-gradient(90deg, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+            color: $white;
+            .end-card {
+                .submit-button {
+                    button {
+                        background: $white;
+                        color: hsl(237, 63%, 64%);
+                        border: 2px solid $white;
+                    }
+                    button:hover {
+                        background: hsl(237, 63%, 64%, 0);
+                        border: 2px solid $white;
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: 700px) and(max-width: 949px) {
+    .content {
+        .card-list {
+            .card {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                text-align: center;
+                .top-card {
+                    align-items: center;
+                }
+                .mid-card {
+                    width: 100%;
+                }
+                .end-card {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 950px) {
+    .content {
+        .card-list {
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-direction: row;
+            #basic-card {
+                border-radius: 1em 0 0 1em;
+            }
+            #pro-card {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+            #master-card {
+                border-radius: 0 1em 1em 0;
+            }
+        }
+    }
+}
