@@ -115,7 +115,7 @@ button:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80%;
+  width: 95%;
 }
 .content .card-list .card .mid-card .card-desc {
   text-align: center;
@@ -131,7 +131,7 @@ button:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80%;
+  width: 95%;
 }
 .content .card-list .card .end-card .submit-button {
   width: 80%;
